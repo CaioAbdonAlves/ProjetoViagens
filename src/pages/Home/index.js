@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import api from '../../services/api.js';
 import {MdFlightTakeoff} from 'react-icons/md';
 import './style.css';
+import { addReserve } from "../../store/modules/reserve/actions.js";
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -18,10 +19,7 @@ export default function Home() {
     }, [])
     
     function handleAdd(trip) {
-        dispatch({
-            type: 'ADD_RESERVE',
-            trip
-        });
+        dispatch(addReserve(trip));
     }
 
     return(
